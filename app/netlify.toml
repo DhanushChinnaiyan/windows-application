@@ -1,4 +1,21 @@
+[build]
+  # Specifies the build command for your app
+  command = "npm run build"
+
+  # Specifies the directory to publish
+  publish = "build"  # Replace 'build' with your actual build directory
+
+# Optional settings for headers and redirects
+[[headers]]
+  # Specify HTTP headers for certain paths or all paths
+  for = "/*"
+    [headers.values]
+    # Add custom headers if needed
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Optional redirects configuration
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  # Redirects for specific paths
+  from = "/old-path"
+  to = "/new-path"
+  status = 301
